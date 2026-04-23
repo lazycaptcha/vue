@@ -112,7 +112,7 @@ function onLogout() {
 |------|------|---------|-------------|
 | `sitekey` | `string` | **required** | Public site key (UUID) |
 | `type` | `'auto' \| 'image_puzzle' \| 'pow' \| 'behavioral' \| 'text_math' \| 'press_hold' \| 'rotate_align'` | `'auto'` | Challenge type |
-| `theme` | `'light' \| 'dark' \| 'auto'` | `'light'` | Widget theme. `'auto'` follows the host page's dark-mode class/attribute and the OS `prefers-color-scheme`. |
+| `theme` | `'light' \| 'dark' \| 'auto'` | `'auto'` | Widget theme. `'auto'` follows the host page's dark-mode class/attribute and the OS `prefers-color-scheme`. |
 | `baseUrl` | `string` | `'https://lazycaptcha.com'` | Your LazyCaptcha instance |
 
 ## Events

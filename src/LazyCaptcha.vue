@@ -5,7 +5,7 @@ import type { LazyCaptchaProps } from './types';
 
 const props = withDefaults(defineProps<LazyCaptchaProps>(), {
     type: 'auto',
-    theme: 'light',
+    theme: 'auto',
     baseUrl: 'https://lazycaptcha.com',
 });
 
