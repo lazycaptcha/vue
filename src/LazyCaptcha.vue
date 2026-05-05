@@ -6,6 +6,7 @@ import type { LazyCaptchaProps } from './types';
 const props = withDefaults(defineProps<LazyCaptchaProps>(), {
     type: 'auto',
     theme: 'auto',
+    widget: 'standard',
     baseUrl: 'https://lazycaptcha.com',
 });
 
@@ -38,6 +39,8 @@ async function mount() {
         sitekey: props.sitekey,
         type: props.type,
         theme: props.theme,
+        widget: props.widget,
+        width: props.width,
         callback: (token: string) => emit('verify', token),
         'expired-callback': () => emit('expired'),
         'error-callback': (err: unknown) => emit('error', err),
@@ -69,12 +72,15 @@ onBeforeUnmount(() => {
 });
 
 // If the sitekey changes, remount the widget
-watch(() => props.sitekey, (next, prev) => {
-    if (next !== prev && container.value) {
-        container.value.innerHTML = '';
-        mount();
+watch(
+    () => [props.sitekey, props.type, props.theme, props.widget, props.width, props.baseUrl],
+    (next, prev) => {
+        if (JSON.stringify(next) !== JSON.stringify(prev) && container.value) {
+            container.value.innerHTML = '';
+            mount();
+        }
     }
-});
+);
 </script>
 
 <template>

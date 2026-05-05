@@ -45,6 +45,8 @@ async function onSubmit() {
 
         <LazyCaptcha
             sitekey="YOUR_SITE_KEY"
+            widget="standard"
+            width="420px"
             @verify="(t) => (token = t)"
             @expired="() => (token = null)"
         />
@@ -77,6 +79,8 @@ const { containerRef, token, reset } = useLazyCaptcha({
     sitekey: 'YOUR_SITE_KEY',
     type: 'auto',
     theme: 'light',
+    widget: 'compact',
+    width: '420px',
     onVerify: (t) => console.log('Got token:', t),
 });
 </script>
@@ -113,13 +117,15 @@ function onLogout() {
 | `sitekey` | `string` | **required** | Public site key (UUID) |
 | `type` | `'auto' \| 'image_puzzle' \| 'pow' \| 'behavioral' \| 'text_math' \| 'press_hold' \| 'rotate_align'` | `'auto'` | Challenge type |
 | `theme` | `'light' \| 'dark' \| 'auto'` | `'auto'` | Widget theme. `'auto'` follows the host page's dark-mode class/attribute and the OS `prefers-color-scheme`. |
+| `widget` | `'standard' \| 'compact' \| 'newsletter' \| 'login'` | `'standard'` | Widget preset. `newsletter` stays intentionally skinny. |
+| `width` | `number \| string` | â€” | Optional width override. The hosted widget caps widths at `500px`. |
 | `baseUrl` | `string` | `'https://lazycaptcha.com'` | Your LazyCaptcha instance |
 
 ## Events
 
 | Event | Payload | When |
 |-------|---------|------|
-| `verify` | `token: string` | User successfully solved the challenge |
+| `verify` | `token: string` | User successfully completed the challenge flow |
 | `expired` | — | Token expired (5 min); user must resolve |
 | `error` | `err: unknown` | Network / config error |
 | `load` | — | Widget script + widget initialized |

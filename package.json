@@ -1,6 +1,6 @@
 {
     "name": "@lazycaptcha/vue",
-    "version": "0.1.0",
+  "version": "2.0.0",
     "description": "Vue 3 component for LazyCaptcha — privacy-friendly, self-hostable CAPTCHA. Drop-in alternative to hCaptcha and reCAPTCHA.",
     "keywords": ["vue", "vue3", "captcha", "lazycaptcha", "bot-protection", "hcaptcha-alternative"],
     "license": "MIT",

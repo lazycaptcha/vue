@@ -1,5 +1,7 @@
 export type LazyCaptchaType = 'auto' | 'image_puzzle' | 'pow' | 'behavioral' | 'text_math' | 'press_hold' | 'rotate_align';
 export type LazyCaptchaTheme = 'light' | 'dark' | 'auto';
+export type LazyCaptchaWidgetPreset = 'standard' | 'compact' | 'newsletter' | 'login';
+export type LazyCaptchaWidgetWidth = number | string;
 
 export interface LazyCaptchaProps {
     /** Public site key from your LazyCaptcha dashboard (UUID). */
@@ -8,6 +10,10 @@ export interface LazyCaptchaProps {
     type?: LazyCaptchaType;
     /** Light or dark widget theme. */
     theme?: LazyCaptchaTheme;
+    /** Widget preset. */
+    widget?: LazyCaptchaWidgetPreset;
+    /** Optional width override. The hosted widget caps widths at 500px. */
+    width?: LazyCaptchaWidgetWidth;
     /** Base URL of your LazyCaptcha instance. */
     baseUrl?: string;
 }
@@ -16,6 +22,8 @@ export interface LazyCaptchaRenderOptions {
     sitekey: string;
     type?: LazyCaptchaType;
     theme?: LazyCaptchaTheme;
+    widget?: LazyCaptchaWidgetPreset;
+    width?: LazyCaptchaWidgetWidth;
     callback?: (token: string) => void;
     'expired-callback'?: () => void;
     'error-callback'?: (err: unknown) => void;

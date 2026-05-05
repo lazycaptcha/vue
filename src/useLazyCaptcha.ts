@@ -48,6 +48,8 @@ export function useLazyCaptcha(
             sitekey: options.sitekey,
             type: options.type,
             theme: options.theme,
+            widget: options.widget,
+            width: options.width,
             callback: (t: string) => {
                 token.value = t;
                 options.onVerify?.(t);
